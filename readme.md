@@ -47,12 +47,25 @@ money
 - user_id
 - added_by (user_id of person who added amount)
 - (timestamps)
- 
+
+allowance
+- id
+- category
+- percent
+- (timestamps)
+
 punishments
 - id
 - punishment
 - get_back_pts
 - timestamps
+
+chores_punishments
+- id
+- chore_id
+- punishment_id
+- user_id
+- (timestamps)
 
 punishments_users
 - id
@@ -72,7 +85,7 @@ settings
 users_settings
 - id
 - user_id
-- settngs_id
+- settings_id
 - value
 - (timestamps)
  
@@ -81,6 +94,7 @@ events
 - user_id (for whom)
 - added_by (user_id for person who added)
 - date_of_event
+- duration
 - events
 - (timestamps)
 

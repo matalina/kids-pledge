@@ -1,6 +1,6 @@
-<?php
+<?php namespace Matalina\Kidspledge\Repository;
 
-
+use Matalina\KidsPledge\Model\User;
 
 /**
  * Class UserRepository
@@ -8,7 +8,7 @@
  * This service abstracts some interactions that occurs between Confide and
  * the Database.
  */
-class UserRepository
+class UserDb
 {
     /**
      * Signup a new account with the given parameters
@@ -19,7 +19,7 @@ class UserRepository
      */
     public function signup($input)
     {
-        $user = new User;
+        $user = new User();
 
         $user->username = array_get($input, 'username');
         $user->email    = array_get($input, 'email');
@@ -52,7 +52,7 @@ class UserRepository
             $input['password'] = null;
         }
 
-        return Confide::logAttempt($input, Config::get('confide::signup_confirm'));
+        return \Confide::logAttempt($input, \Config::get('\Confide::signup_confirm'));
     }
 
     /**
@@ -65,7 +65,7 @@ class UserRepository
      */
     public function isThrottled($input)
     {
-        return Confide::isThrottled($input);
+        return \Confide::isThrottled($input);
     }
 
     /**
@@ -78,10 +78,10 @@ class UserRepository
      */
     public function existsButNotConfirmed($input)
     {
-        $user = Confide::getUserByEmailOrUsername($input);
+        $user = \Confide::getUserByEmailOrUsername($input);
 
         if ($user) {
-            $correctPassword = Hash::check(
+            $correctPassword = \Hash::check(
                 isset($input['password']) ? $input['password'] : false,
                 $user->password
             );
@@ -100,7 +100,7 @@ class UserRepository
     public function resetPassword($input)
     {
         $result = false;
-        $user   = Confide::userByResetPasswordToken($input['token']);
+        $user   = \Confide::userByResetPasswordToken($input['token']);
 
         if ($user) {
             $user->password              = $input['password'];
@@ -110,7 +110,7 @@ class UserRepository
 
         // If result is positive, destroy token
         if ($result) {
-            Confide::destroyForgotPasswordToken($input['token']);
+            \Confide::destroyForgotPasswordToken($input['token']);
         }
 
         return $result;

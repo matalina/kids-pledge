@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'model' => 'Matalina\KidsPedge\Model\User',
+	'model' => 'Matalina\KidsPledge\Model\User',
 
 	/*
 	|--------------------------------------------------------------------------

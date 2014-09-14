@@ -1,26 +1,44 @@
-<?php
+<?php namespace Matalina\KidsPledge\Model;
 
 use Illuminate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
+use \Zizaco\Confide\ConfideUserInterface;
+use \Zizaco\Confide\ConfideUser;
 
-class User extends Eloquent implements UserInterface, RemindableInterface {
+class User extends \Eloquent implements ConfideUserInterface {
 
-	use UserTrait, RemindableTrait;
+	use UserTrait, RemindableTrait, ConfideUser;
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
 	protected $table = 'users';
-
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
 	protected $hidden = array('password', 'remember_token');
 
+    public function chores()
+    {
+        return $this->belongsToMany('Matalina\\KidsPledge\\Models\\Chore');
+    }
+
+    public function checklist()
+    {
+        return $this->belongsToMany('Matalina\\KidsPledge\\Models\\Checklist');
+    }
+
+    public function money()
+    {
+        return $this->belongsToMany('Matalina\\KidsPledge\\Models\\Money');
+    }
+
+    public function punishments()
+    {
+        return $this->belongsToMany('Matalina\\KidsPledge\\Models\\Punisment');
+    }
+
+    public function settings()
+    {
+        return $this->belongsToMany('Matalina\\KidsPledge\\Models\\Setting');
+    }
+
+    public function events()
+    {
+        return $this->belongsToMany('Matalina\\KidsPledge\\Models\\Event');
+    }
 }
