@@ -27,7 +27,7 @@ class UsersController extends Controller
      */
     public function store()
     {
-        $repo = App::make('UserRepository');
+        $repo = App::make('Matalina\KidsPledge\Repository\UserDb');
         $user = $repo->signup(Input::all());
 
         if ($user->id) {
@@ -76,7 +76,7 @@ class UsersController extends Controller
      */
     public function doLogin()
     {
-        $repo = App::make('UserRepository');
+        $repo = App::make('Matalina\KidsPledge\Repository\UserDb');
         $input = Input::all();
 
         if ($repo->login($input)) {
@@ -165,7 +165,7 @@ class UsersController extends Controller
      */
     public function doResetPassword()
     {
-        $repo = App::make('UserRepository');
+        $repo = App::make('Matalina\KidsPledge\Repository\UserDb');
         $input = array(
             'token'                 =>Input::get('token'),
             'password'              =>Input::get('password'),
