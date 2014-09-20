@@ -1,7 +1,15 @@
 <?php
 
-class AllowanceController extends \BaseController {
+use \Matalina\KidsPledge\Interfaces\AllowanceInterface;
 
+class AllowanceController extends \BaseController
+{
+    protected $allowance;
+
+    public function __construct(AllowanceInterface $allowance)
+    {
+        $this->allowance = $allowance;
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,7 +17,7 @@ class AllowanceController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		return View::make('allowance.list');
 	}
 
 
@@ -20,7 +28,7 @@ class AllowanceController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return View::make('allowance.create');
 	}
 
 
@@ -31,7 +39,7 @@ class AllowanceController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$this->allowance->createAllowance();
 	}
 
 
