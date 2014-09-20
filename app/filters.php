@@ -88,3 +88,24 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('isParent', function ()
+{
+    if (Auth::guest())
+    {
+        if (Request::ajax())
+        {
+            return Response::make('Unauthorized', 401);
+        }
+        else
+        {
+            return Redirect::guest('login');
+        }
+    }
+
+    if(!Auth::user()->parent) {
+        Session::flash('warning','You are not authorized to do this action');
+        return Redirect::back();
+    }
+});

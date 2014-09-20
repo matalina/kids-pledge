@@ -100,6 +100,7 @@ return array(
 	    'Caouecs\Gumby2\Gumby2ServiceProvider',
 	    'Intervention\Image\ImageServiceProvider',
 	    'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+        'Matalina\KidsPledge\KidsPledgeServiceProvider',
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',
