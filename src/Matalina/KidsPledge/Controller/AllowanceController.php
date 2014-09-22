@@ -39,7 +39,14 @@ class AllowanceController extends \BaseController
 	 */
 	public function store()
 	{
-		$this->allowance->createAllowance();
+		$check = $this->allowance->create();
+		if($check) {
+			Session::flash('success','Allowance created!');
+			return Response::action('AllowanceController@index');
+		}
+		else {
+			return Response::action('AllowanceController@create')->withErrors($this->allowance->getErrors())->withInput();
+		}
 	}
 
 
@@ -51,7 +58,9 @@ class AllowanceController extends \BaseController
 	 */
 	public function show($id)
 	{
-		//
+		$allowance = $this->allowance->getByID((int) $id);
+		View::share('allowance',$allowance);
+		return View::make('allowance.show');
 	}
 
 
@@ -63,7 +72,9 @@ class AllowanceController extends \BaseController
 	 */
 	public function edit($id)
 	{
-		//
+		$allowance = $this->allowance->getByID((int) $id);
+		View::share('allowance',$allowance);
+		return View::make('allowance.edit');
 	}
 
 
@@ -75,7 +86,14 @@ class AllowanceController extends \BaseController
 	 */
 	public function update($id)
 	{
-		//
+		$check = $this->allowance->edit((int) $id);
+		if($check) {
+			Session::flash('success','Allowance updated!');
+			return Response::action('AllowanceController@index');
+		}
+		else {
+			return Response::action('AllowanceController@edit')->withErrors($this->allowance->getErrors())->withInput();
+		}
 	}
 
 
@@ -87,7 +105,14 @@ class AllowanceController extends \BaseController
 	 */
 	public function destroy($id)
 	{
-		//
+		$check = $this->allowance->delete((int) $id);
+		if($check) {
+			Session::flash('success','Allowance deleted!');
+			return Response::action('AllowanceController@index');
+		}
+		else {
+			return Response::action('AllowanceController@index')->withErrors($this->allowance->getErrors());
+		}
 	}
 
 
