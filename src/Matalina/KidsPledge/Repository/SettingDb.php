@@ -1,6 +1,8 @@
 <?php namespace Matalina\KidsPledge\Repository;
 
-interface SettingDb
+use Matalina\KidsPledge\Interfaces\SettingInterface;
+
+class SettingDb implements SettingInterface
 {
 
 }

@@ -1,6 +1,8 @@
 <?php namespace Matalina\KidsPledge\Repository;
 
-interface PunishmentDb
+use Matalina\KidsPledge\Interfaces\PunishmentInterface;
+
+class PunishmentDb implements PunishmentInterface
 {
 
 }

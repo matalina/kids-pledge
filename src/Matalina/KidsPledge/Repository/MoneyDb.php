@@ -1,6 +1,8 @@
 <?php namespace Matalina\KidsPledge\Repository;
 
-interface MoneyDb
+use Matalina\KidsPledge\Interfaces\MoneyInterface;
+
+class MoneyDb implements MoneyInterface
 {
 
 }

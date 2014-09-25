@@ -1,6 +1,8 @@
 <?php namespace Matalina\KidsPledge\Repository;
 
-interface EventDb
+use Matalina\KidsPledge\Interfaces\EventInterface;
+
+class EventDb implements EventInterface
 {
 
 }

@@ -10,4 +10,7 @@ class Allowance extends Ardent
     ];
 
     protected $guarded = ['id'];
+    public $autoHydrateEntityFromInput = true;  
+    public $forceEntityHydrationFromInput = true;
+    public $autoPurgeRedundantAttributes = true;
 }
