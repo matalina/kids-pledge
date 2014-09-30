@@ -20,10 +20,10 @@
 			"app/database/migrations",
 			"app/database/seeds",
 			"app/tests/TestCase.php",
-            "src/Matalina/KidsPledge/Controller"
+            "Matalina/KidsPledge/Controller"
 		],
 		"psr-4": {
-		    "Matalina\\KidsPledge\\": "src/Matalina/KidsPledge"
+		    "Matalina\\KidsPledge\\": "Matalina/KidsPledge/"
 		}
 	},
 	"scripts": {

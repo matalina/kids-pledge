@@ -1,6 +1,6 @@
 <?php namespace Matalina\KidsPledge\Model;
 
-use LaravelBook\Ardent\Facades\Ardent;
+use LaravelBook\Ardent;
 
 class Chore extends Ardent
 {
