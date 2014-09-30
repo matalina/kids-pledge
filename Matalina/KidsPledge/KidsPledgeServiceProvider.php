@@ -1,6 +1,7 @@
 <?php namespace Matalina\KidsPledge;
 
 use Illuminate\Support\ServiceProvider;
+
 class KidsPledgeServiceProvider extends ServiceProvider
 {
     public function register()

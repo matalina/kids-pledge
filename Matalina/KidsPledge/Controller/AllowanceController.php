@@ -1,6 +1,6 @@
 <?php
 
-use \Matalina\KidsPledge\Interfaces\AllowanceInterface;
+use Matalina\KidsPledge\Interfaces\AllowanceInterface;
 
 class AllowanceController extends \BaseController
 {
@@ -13,11 +13,11 @@ class AllowanceController extends \BaseController
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 *@return Response
 	 */
 	public function index()
 	{
-		$this->allowance-getAll();
+		$this->allowance->getAll();
 		return View::make('allowance.list');
 	}
 
@@ -43,10 +43,10 @@ class AllowanceController extends \BaseController
 		$check = $this->allowance->create();
 		if($check) {
 			Session::flash('success','Allowance created!');
-			return Response::action('AllowanceController@index');
+			return Redirect::action('AllowanceController@index');
 		}
 		else {
-			return Response::action('AllowanceController@create')->withErrors($this->allowance->getErrors())->withInput();
+			return Redirect::action('AllowanceController@create')->withErrors($this->allowance->getErrors())->withInput();
 		}
 	}
 
@@ -90,10 +90,10 @@ class AllowanceController extends \BaseController
 		$check = $this->allowance->edit((int) $id);
 		if($check) {
 			Session::flash('success','Allowance updated!');
-			return Response::action('AllowanceController@index');
+			return Redirect::action('AllowanceController@index');
 		}
 		else {
-			return Response::action('AllowanceController@edit')->withErrors($this->allowance->getErrors())->withInput();
+			return Redirect::action('AllowanceController@edit')->withErrors($this->allowance->getErrors())->withInput();
 		}
 	}
 
@@ -109,10 +109,10 @@ class AllowanceController extends \BaseController
 		$check = $this->allowance->delete((int) $id);
 		if($check) {
 			Session::flash('success','Allowance deleted!');
-			return Response::action('AllowanceController@index');
+			return Redirect::action('AllowanceController@index');
 		}
 		else {
-			return Response::action('AllowanceController@index')->withErrors($this->allowance->getErrors());
+			return Redirect::action('AllowanceController@index')->withErrors($this->allowance->getErrors());
 		}
 	}
 

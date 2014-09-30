@@ -1,5 +1,4 @@
 <?php namespace Matalina\KidsPledge\Repository;
-
 use Matalina\KidsPledge\Interfaces\AllowanceInterface;
 use Matalina\KidsPledge\Model\Allowance;
 
