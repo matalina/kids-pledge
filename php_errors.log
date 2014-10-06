@@ -1,3 +1,7 @@
 [06-Oct-2014 08:35:56 America/Chicago] PHP Fatal error:  Class 'Matalina\KidsPledge\Repository\Config' not found in /home/ubuntu/workspace/Matalina/KidsPledge/Repository/AllowanceDb.php on line 25
 [06-Oct-2014 09:52:23 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/95b102a40070b814c4ba21ac8fdf2101 on line 1
 [06-Oct-2014 09:54:56 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/ubuntu/workspace/app/storage/views/95b102a40070b814c4ba21ac8fdf2101 on line 5
+[06-Oct-2014 10:48:15 America/Chicago] PHP Fatal error:  Call to undefined method Matalina\KidsPledge\Repository\ChoreDb::getAll() in /home/ubuntu/workspace/Matalina/KidsPledge/Controller/ChoreController.php on line 19
+[06-Oct-2014 10:49:58 America/Chicago] PHP Fatal error:  Class 'LaravelBook\Ardent' not found in /home/ubuntu/workspace/Matalina/KidsPledge/Model/Chore.php on line 6
+[06-Oct-2014 11:07:04 America/Chicago] PHP Parse error:  syntax error, unexpected 'chore' (T_STRING) in /home/ubuntu/workspace/app/storage/views/1ffbd26c764fddb5cc90df1052151120 on line 7
+[06-Oct-2014 11:07:46 America/Chicago] PHP Parse error:  syntax error, unexpected 'chore' (T_STRING) in /home/ubuntu/workspace/app/storage/views/1ffbd26c764fddb5cc90df1052151120 on line 7

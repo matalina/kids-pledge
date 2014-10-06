@@ -1,15 +1,24 @@
 <?php
 
-class MoneyController extends \BaseController {
+use Matalina\KidsPledge\Interfaces\MoneyInterface;
 
+class MoneyController extends \BaseController {
+protected $money;
+
+    public function __construct(MoneyInterface $money)
+    {
+        $this->money = $money;
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 *@return Response
 	 */
 	public function index()
 	{
-		//
+		$money = $this->money->getAll();
+		View::share('money',$money);
+		return View::make('money.list');
 	}
 
 
@@ -20,7 +29,7 @@ class MoneyController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return View::make('money.create');
 	}
 
 
@@ -31,7 +40,14 @@ class MoneyController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$check = $this->money->create();
+		if($check) {
+			Session::flash('success','Money created!');
+			return Redirect::action('MoneyController@index');
+		}
+		else {
+			return Redirect::action('MoneyController@create')->withErrors($this->money->getErrors())->withInput();
+		}
 	}
 
 
@@ -43,7 +59,9 @@ class MoneyController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$money = $this->money->getByID((int) $id);
+		View::share('money',$money);
+		return View::make('money.show');
 	}
 
 
@@ -55,7 +73,9 @@ class MoneyController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$money = $this->money->getByID((int) $id);
+		View::share('money',$money);
+		return View::make('money.edit');
 	}
 
 
@@ -67,7 +87,14 @@ class MoneyController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$check = $this->money->edit((int) $id);
+		if($check) {
+			Session::flash('success','Money updated!');
+			return Redirect::action('MoneyController@index');
+		}
+		else {
+			return Redirect::action('MoneyController@edit')->withErrors($this->money->getErrors())->withInput();
+		}
 	}
 
 
@@ -79,8 +106,14 @@ class MoneyController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$check = $this->money->delete((int) $id);
+		if($check) {
+			Session::flash('success','Money deleted!');
+			return Redirect::action('MoneyController@index');
+		}
+		else {
+			return Redirect::action('MoneyController@index')->withErrors($this->money->getErrors());
+		}
 	}
-
 
 }

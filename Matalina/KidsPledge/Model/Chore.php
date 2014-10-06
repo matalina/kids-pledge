@@ -1,6 +1,6 @@
 <?php namespace Matalina\KidsPledge\Model;
 
-use LaravelBook\Ardent;
+use LaravelBook\Ardent\Ardent;
 
 class Chore extends Ardent
 {
@@ -10,6 +10,9 @@ class Chore extends Ardent
     ];
 
     protected $guarded = ['id'];
+    public $autoHydrateEntityFromInput = true;  
+    public $forceEntityHydrationFromInput = true;
+    public $autoPurgeRedundantAttributes = true;
 
     public function users()
     {

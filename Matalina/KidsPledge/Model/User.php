@@ -11,6 +11,10 @@ class User extends \Eloquent implements ConfideUserInterface {
 
 	protected $table = 'users';
 	protected $hidden = array('password', 'remember_token');
+	
+	public $autoHydrateEntityFromInput = true;  
+    public $forceEntityHydrationFromInput = true;
+    public $autoPurgeRedundantAttributes = true;
 
     public function chores()
     {

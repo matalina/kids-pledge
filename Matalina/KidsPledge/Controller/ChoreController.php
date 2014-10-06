@@ -1,15 +1,24 @@
 <?php
 
-class ChoreController extends \BaseController {
+use Matalina\KidsPledge\Interfaces\ChoreInterface;
 
+class ChoreController extends \BaseController {
+protected $chore;
+
+    public function __construct(ChoreInterface $chore)
+    {
+        $this->chore = $chore;
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
-	 * @return Response
+	 *@return Response
 	 */
 	public function index()
 	{
-		//
+		$chore = $this->chore->getAll();
+		View::share('chore',$chore);
+		return View::make('chore.list');
 	}
 
 
@@ -20,7 +29,7 @@ class ChoreController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+        return View::make('chore.create');
 	}
 
 
@@ -31,7 +40,14 @@ class ChoreController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		$check = $this->chore->create();
+		if($check) {
+			Session::flash('success','Chore created!');
+			return Redirect::action('ChoreController@index');
+		}
+		else {
+			return Redirect::action('ChoreController@create')->withErrors($this->chore->getErrors())->withInput();
+		}
 	}
 
 
@@ -43,7 +59,9 @@ class ChoreController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$chore = $this->chore->getByID((int) $id);
+		View::share('chore',$chore);
+		return View::make('chore.show');
 	}
 
 
@@ -55,7 +73,9 @@ class ChoreController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		//
+		$chore = $this->chore->getByID((int) $id);
+		View::share('chore',$chore);
+		return View::make('chore.edit');
 	}
 
 
@@ -67,7 +87,14 @@ class ChoreController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$check = $this->chore->edit((int) $id);
+		if($check) {
+			Session::flash('success','Chore updated!');
+			return Redirect::action('ChoreController@index');
+		}
+		else {
+			return Redirect::action('ChoreController@edit')->withErrors($this->chore->getErrors())->withInput();
+		}
 	}
 
 
@@ -79,8 +106,14 @@ class ChoreController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+		$check = $this->chore->delete((int) $id);
+		if($check) {
+			Session::flash('success','Chore deleted!');
+			return Redirect::action('ChoreController@index');
+		}
+		else {
+			return Redirect::action('ChoreController@index')->withErrors($this->chore->getErrors());
+		}
 	}
-
 
 }

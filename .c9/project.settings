@@ -14,7 +14,9 @@
                     "command": "",
                     "name": "Apache & PHP",
                     "default": true,
-                    "debug": true
+                    "debug": true,
+                    "cwd": "/public",
+                    "env": {}
                 }
             },
             "@inited": "true"
