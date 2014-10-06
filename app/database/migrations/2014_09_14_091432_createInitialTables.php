@@ -48,7 +48,7 @@ class CreateInitialTables extends Migration {
             $table->timestamps();
         });
 
-        Schema::create('allowance', function (Blueprint $table)
+        Schema::create('allowances', function (Blueprint $table)
         {
             $table->increments('id');
             $table->string('category');

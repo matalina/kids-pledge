@@ -1,0 +1,1 @@
+[06-Oct-2014 08:35:56 America/Chicago] PHP Fatal error:  Class 'Matalina\KidsPledge\Repository\Config' not found in /home/ubuntu/workspace/Matalina/KidsPledge/Repository/AllowanceDb.php on line 25

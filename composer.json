@@ -23,7 +23,7 @@
             "Matalina/KidsPledge/Controller"
 		],
 		"psr-4": {
-		    "Matalina\\KidsPledge\\": "Matalina/KidsPledge/"
+			"Matalina\\KidsPledge\\": "Matalina/KidsPledge"
 		}
 	},
 	"scripts": {

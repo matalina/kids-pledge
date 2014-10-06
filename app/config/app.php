@@ -94,13 +94,13 @@ return array(
 	*/
 
 	'providers' => array(
-	    
-	    'Zizaco\Confide\ServiceProvider',
-	    'JasonNZ\Jinput\JinputServiceProvider',
-	    'Caouecs\Gumby2\Gumby2ServiceProvider',
-	    'Intervention\Image\ImageServiceProvider',
-	    'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
-        'Matalina\KidsPledge\KidsPledgeServiceProvider',
+			 
+		'Zizaco\Confide\ServiceProvider',
+	    	'JasonNZ\Jinput\JinputServiceProvider',
+	    	'Caouecs\Gumby2\Gumby2ServiceProvider',
+	    	'Intervention\Image\ImageServiceProvider',
+	    	'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+            	'Matalina\KidsPledge\KidsPledgeServiceProvider',
 
 		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
 		'Illuminate\Auth\AuthServiceProvider',

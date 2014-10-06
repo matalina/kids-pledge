@@ -22,7 +22,7 @@ class AllowanceDb implements AllowanceInterface
     
     public function getAll() 
     {
-        return Allowance::paginate(Config::get('kidspledge.items-per-page'));
+        return Allowance::paginate(\Config::get('kidspledge.items-per-page'));
     }
     
     public function getById($id)
