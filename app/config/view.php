@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'paths' => array(__DIR__.'/../../src/Matalina/KidsPledge/View'),
+	'paths' => array(__DIR__.'/../../Matalina/KidsPledge/View'),
 
 	/*
 	|--------------------------------------------------------------------------

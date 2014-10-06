@@ -1,1 +1,3 @@
 [06-Oct-2014 08:35:56 America/Chicago] PHP Fatal error:  Class 'Matalina\KidsPledge\Repository\Config' not found in /home/ubuntu/workspace/Matalina/KidsPledge/Repository/AllowanceDb.php on line 25
+[06-Oct-2014 09:52:23 America/Chicago] PHP Parse error:  syntax error, unexpected '}', expecting ',' or ';' in /home/ubuntu/workspace/app/storage/views/95b102a40070b814c4ba21ac8fdf2101 on line 1
+[06-Oct-2014 09:54:56 America/Chicago] PHP Parse error:  syntax error, unexpected '{' in /home/ubuntu/workspace/app/storage/views/95b102a40070b814c4ba21ac8fdf2101 on line 5

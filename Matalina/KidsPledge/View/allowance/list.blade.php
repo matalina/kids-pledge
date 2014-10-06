@@ -1,3 +1,4 @@
+<p><a href="{{ url('allowance/create') }}">New Allowance</a></p>
 <table>
     <thead>
         <tr>
@@ -13,7 +14,7 @@
             <td>{{ $a->percent }} %</td>
             <td>
                 <a href="{{ url('allowance/'.$a->id.'/edit') }}">Edit</a>
-                {{ Form::open(['url' => 'allowance/'.$a->id, 'action' => 'delete']) }}
+                {{ Form::open(['url' => 'allowance/'.$a->id, 'method' => 'DELETE']) }}
                 {{ Form::submit('Delete') }}
                 {{ Form::close() }}
             </td>

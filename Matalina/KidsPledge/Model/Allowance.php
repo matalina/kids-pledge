@@ -13,4 +13,14 @@ class Allowance extends Ardent
     public $autoHydrateEntityFromInput = true;  
     public $forceEntityHydrationFromInput = true;
     public $autoPurgeRedundantAttributes = true;
+    
+    public function setPercentAttribute($value)
+    {
+        $this->attributes['percent'] = $value / 100;
+    }
+    
+    public function getPercentAttribute()
+    {
+        return $this->attributes['percent'] * 100;
+    }
 }

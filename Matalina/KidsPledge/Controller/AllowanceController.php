@@ -17,7 +17,8 @@ class AllowanceController extends \BaseController
 	 */
 	public function index()
 	{
-		$this->allowance->getAll();
+		$allowance = $this->allowance->getAll();
+		View::share('allowance',$allowance);
 		return View::make('allowance.list');
 	}
 
